@@ -14,11 +14,17 @@ public class WeatherController {
 
     @GetMapping("/weather-gov")
     public String weathergov() {
-        System.out.println("Get Request: Weather Gov");
+        System.out.println("Get Request: Weather Gov2");
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject("https://api.weather.gov/gridpoints/TOP/31,80/forecast", String.class);
         return result;
     }
-
+    @GetMapping("/weather-alert")
+    public String weatherGovAlert() {
+        System.out.println("Get Request: Weather Gov Alert");
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject("https://api.weather.gov/alerts/active?area=GA", String.class);
+        return result;
+    }
 
 }
